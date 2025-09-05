@@ -1,0 +1,20 @@
+@use "sass:meta";
+
+// color
+$main-color: hsl(257, 40%, 49%);
+$key-color: hsl(300, 69%, 71%);
+$white: #fff;
+
+// breakpoint
+$pc: 769px;
+
+@mixin mq($breakpoint: pc) {
+  @if meta.type-of($breakpoint) == string {
+    @if $breakpoint == pc {
+      $breakpoint: $pc;
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}

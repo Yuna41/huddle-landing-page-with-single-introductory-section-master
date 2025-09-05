@@ -1,0 +1,118 @@
+@use './mixin';
+
+.sec-mv{
+  padding: 4rem;
+  background: mixin.$main-color url(../images/bg-mobile.svg) no-repeat center top / contain;
+  @include mixin.mq{
+    background-image: url(../images/bg-desktop.svg);
+    background-size: cover;
+  }
+  @include mixin.mq{
+    max-width: 1440px;
+    padding: 7rem 7rem 4rem;
+    margin-inline: auto;
+  }
+  .ttl{
+    width: 120px;
+    margin-bottom: 4.8rem;
+    @include mixin.mq{
+      width: 220px;
+      margin-bottom: 7rem;
+    }
+  }
+  &_box{
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-bottom: 6rem;
+    @include mixin.mq{
+      flex-direction: row;
+      margin-bottom: 2.4rem;
+    }
+  }
+  .img{
+    @include mixin.mq{
+      min-width: 53%;
+    }
+  }
+  .txt{
+    text-align: center;
+    @include mixin.mq{
+      text-align: left;
+      padding-top: 3rem;
+    }
+    h2{
+      font-family: "Poppins", sans-serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1.6rem;
+      @include mixin.mq{
+        font-size: 3.6rem;
+        margin-bottom: 1.8rem;
+      }
+    }
+    p{
+      line-height: 1.5;
+      margin-bottom: 2.4rem;
+      @include mixin.mq{
+        margin-bottom: 2.6rem; 
+      }
+    }
+  }
+  &_btn{
+    a{
+      display: inline-block;
+      color: mixin.$main-color;
+      background: mixin.$white;
+      padding: 1.5rem;
+      border-radius: 5rem;
+      min-width: 240px;
+      box-shadow: 0 1px 4px #00252e;
+      transition: .3s ease;
+      @include mixin.mq{
+        text-align: center;
+        padding: 1.8rem;
+        min-width: 200px;
+        line-height: 1.2;
+        &:hover{
+          background: mixin.$key-color;
+          color: mixin.$white;
+        }
+      }
+    }
+  }
+  &_sns{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    @include mixin.mq{
+      justify-content: flex-end;   
+      gap: 1.4rem;
+    }
+    a{
+      display: block;
+      width: 3.2rem;
+      height: 3.2rem;
+      border: 1px solid mixin.$white;
+      border-radius: 50%;
+      padding: .6rem;
+      transition: .3s ease;
+      @include mixin.mq{
+        width: 4.4rem;
+        height: 4.4rem;
+        padding: 1rem;
+        &:hover{
+          background: mixin.$white;
+          svg{
+            fill: mixin.$main-color;
+          }
+        }
+      }
+    }
+    svg{
+      fill: mixin.$white;
+      transition: .3s ease;
+    }
+  }
+}
